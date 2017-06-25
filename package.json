@@ -1,0 +1,7 @@
+{
+  "name": "phaserGame",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "freshMouse <freshMouse223@gmail.com>",
+  "license": "MIT"
+}
