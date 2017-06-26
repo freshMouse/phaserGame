@@ -8,5 +8,5 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/src/index.html");
 });
 
-app.listen(8080);
-console.log("serving at 8080");
+app.listen(80);
+console.log("serving at 80");
