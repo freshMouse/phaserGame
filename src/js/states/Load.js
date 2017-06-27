@@ -1,4 +1,4 @@
-Game.Load = function(game) {
+module.exports = function(game) {
   this.loadBar = null;
 
   this.preload = function() {

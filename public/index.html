@@ -3,7 +3,7 @@
   <head>
     <title>phaser game</title>
 
-    <script src="/src/js/phaser.js"></script>
+    <script src="//cdn.jsdelivr.net/phaser/2.6.2/phaser.js"></script>
 
     <style>
       html, body {
@@ -17,29 +17,15 @@
     </style>
   </head>
   <body>
-
+    <script src="/public/bundle.js"></script>
+<!--
     <script src="/src/js/Player.js"></script>
     <script src="/src/js/Map.js"></script>
 
     <script src="/src/js/states/Boot.js"></script>
     <script src="/src/js/states/Load.js"></script>
     <script src="/src/js/states/L1.js"></script>
-
-    <script>
-
-      var conf = {
-        width: window.innerWidth,
-        height: window.innerHeight,
-
-        renderer: Phaser.AUTO
-      }
-      var game = new Phaser.Game(conf);
-
-      game.state.add("Boot", Game.Boot, true);
-      game.state.add("Load", Game.Load);
-      game.state.add("L1", Game.L1);
-
-    </script>
-
+    <script src="/src/js/main.js"></script>
+-->
   </body>
 </html>

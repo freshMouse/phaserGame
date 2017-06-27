@@ -1,4 +1,4 @@
-var Player = function(game) {
+module.exports = function(game) {
   this.speed = 400;
   this.jumpTimmer = 0;
 

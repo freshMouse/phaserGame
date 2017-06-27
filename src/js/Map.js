@@ -1,4 +1,4 @@
-var Map = function(game) {
+module.exports = function(game) {
   this.setup = function() {
     this.map = game.add.tilemap("L1Map", 64, 64);
     this.map.addTilesetImage("L1Tileset");

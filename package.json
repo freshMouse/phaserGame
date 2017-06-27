@@ -5,6 +5,9 @@
   "author": "freshMouse <freshMouse223@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.3"
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "express": "^4.15.3",
+    "phaser": "^2.6.2"
   }
 }

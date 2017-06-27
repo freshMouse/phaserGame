@@ -1,6 +1,4 @@
-var Game = {}
-
-Game.Boot = function(game) {
+module.exports = function(game) {
   this.init = function() {
     this.input.maxPointers = 1;
 

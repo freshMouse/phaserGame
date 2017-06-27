@@ -1,4 +1,7 @@
-Game.L1 = function(game) {
+var Player = require("./../Player");
+var Map = require("./../Map");
+
+module.exports = function(game) {
   this.init = function() {
     this.player = new Player(this);
     this.map = new Map(this);
