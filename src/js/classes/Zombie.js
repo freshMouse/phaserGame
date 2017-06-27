@@ -1,5 +1,5 @@
 module.exports = function Zombie(game, x, y, map, player) {
-  this.speed = 300;
+  this.speed = 300 + Math.random() * 50;
   this.jump = -500;
 
   this.jumpTimmer = 0;
@@ -33,7 +33,6 @@ module.exports = function Zombie(game, x, y, map, player) {
   }
 
   this.killPlayer = function() {
-    alert("died");
     location.reload();
   }
 }

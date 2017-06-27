@@ -95,7 +95,7 @@ module.exports = function (game) {
     this.player.body.velocity.x = 0;
     if (controls.space.isDown || controls.space.isDown && controls.right.isDown) {
       this.player.animations.play("mine");
-      this.mineTile = map.map.getTileRight(0, Math.round(this.player.x / 64) - 1, Math.round(this.player.y / 64) - 1);
+      this.mineTile = map.map.getTileRight(0, Math.round(this.player.x / 64) - 1, Math.round(this.player.y / 64));
       if (this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 || this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11) {
         this.mine(map);
       }
@@ -266,19 +266,23 @@ var Zombie = __webpack_require__(7);
 
 module.exports = function (game, map, player) {
   this.housePos = { x: 10, y: 10 };
+  this.zombies = new Array(10);
   this.setup = function () {
     this.house = game.add.sprite(this.housePos.x, this.housePos.y, "ememyHouse");
     game.physics.enable(this.house);
     this.house.collideWorldBounds = true;
 
-    this.zombie = new Zombie(game, this.housePos.x, this.housePos.y, map, player);
-    this.zombie.setup();
+    for (var i = 0; i < this.zombies.length; i++) {
+      this.zombies[i] = new Zombie(game, this.housePos.x, this.housePos.y, map, player);
+      this.zombies[i].setup();
+    }
   };
 
   this.update = function () {
     game.physics.arcade.collide(this.house, map.layer);
-
-    this.zombie.update();
+    for (var i = 0; i < this.zombies.length; i++) {
+      this.zombies[i].update();
+    }
   };
 };
 
@@ -287,7 +291,7 @@ module.exports = function (game, map, player) {
 /***/ (function(module, exports) {
 
 module.exports = function Zombie(game, x, y, map, player) {
-  this.speed = 300;
+  this.speed = 300 + Math.random() * 50;
   this.jump = -500;
 
   this.jumpTimmer = 0;
@@ -321,7 +325,6 @@ module.exports = function Zombie(game, x, y, map, player) {
   };
 
   this.killPlayer = function () {
-    alert("died");
     location.reload();
   };
 };

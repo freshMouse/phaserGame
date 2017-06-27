@@ -8,7 +8,7 @@ module.exports = function(game) {
     this.map = new Map(this);
     this.ememy = new Ememy(this, this.map, this.player);
   }
-
+  
   this.create = function() {
     this.map.setup();
     this.setupControls();

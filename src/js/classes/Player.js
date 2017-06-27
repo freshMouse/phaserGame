@@ -26,7 +26,7 @@ module.exports = function(game) {
     this.player.body.velocity.x = 0;
     if(controls.space.isDown || controls.space.isDown && controls.right.isDown) {
       this.player.animations.play("mine");
-      this.mineTile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) - 1); 
+      this.mineTile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64));
       if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
         this.mine(map);
       }
