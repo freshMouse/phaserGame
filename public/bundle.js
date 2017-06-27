@@ -322,7 +322,7 @@ module.exports = function Zombie(game, x, y, map, player) {
 
   this.killPlayer = function () {
     alert("died");
-    player.player.reset(100, 10);
+    location.reload();
   };
 };
 
