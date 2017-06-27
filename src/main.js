@@ -1,6 +1,7 @@
 var Boot = require("./js/states/Boot");
 var Load = require("./js/states/Load");
 var L1 = require("./js/states/L1");
+var player = require("./js/classes/Player.js");
 
 var conf = {
   width: window.innerWidth,

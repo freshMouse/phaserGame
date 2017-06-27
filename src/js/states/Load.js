@@ -19,8 +19,11 @@ module.exports = function(game) {
 
   this.loadAssets = function() {
     this.load.tilemap("L1Map", "/assets/tilemaps/L1Map.csv");
-    this.load.image("L1Tileset", "/assets/tiles/tiles.png");
+    this.load.image("L1Tileset", "/assets/tiles/L1Set.png");
 
-    this.load.spritesheet("miner", "/assets/sprites/miner.png", 32, 32.9);
+    this.load.spritesheet("miner", "/assets/spritesheets/miner.png", 32, 32.9);
+
+    this.load.image("ememyHouse", "/assets/images/mushroom.png"); // the mushroom is the house
+    this.load.spritesheet("zombie", "/assets/spritesheets/zombi.png", 32, 32);
   }
 }

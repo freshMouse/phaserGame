@@ -6,7 +6,7 @@ module.exports = function(game) {
   }
 
   this.preload = function() {
-    this.load.image("loadBar", "assets/loadBar.png");
+    this.load.image("loadBar", "/assets/images/loadBar.png");
   }
 
   this.create = function() {
