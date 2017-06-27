@@ -18,9 +18,9 @@ module.exports = function(game) {
   }
 
   this.loadAssets = function() {
-    this.load.tilemap("L1Map", "/assets/L1Map.csv");
-    this.load.image("L1Tileset", "/assets/tiles.png");
+    this.load.tilemap("L1Map", "/assets/tilemaps/L1Map.csv");
+    this.load.image("L1Tileset", "/assets/tiles/tiles.png");
 
-    this.load.spritesheet("miner", "/assets/miner.png", 32, 29.9);
+    this.load.spritesheet("miner", "/assets/sprites/miner.png", 32, 32.9);
   }
 }
