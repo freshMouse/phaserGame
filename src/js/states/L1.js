@@ -26,7 +26,9 @@ module.exports = function(game) {
       left: this.input.keyboard.addKey(Phaser.Keyboard.LEFT),
       right: this.input.keyboard.addKey(Phaser.Keyboard.RIGHT),
       up: this.input.keyboard.addKey(Phaser.Keyboard.UP),
-      space: this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR) // mine!
+      space: this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR), // mine!
+      s: this.input.keyboard.addKey(Phaser.Keyboard.S),
+      w: this.input.keyboard.addKey(Phaser.Keyboard.W)
     }
   }
 }

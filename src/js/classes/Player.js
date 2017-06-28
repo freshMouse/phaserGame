@@ -24,11 +24,22 @@ module.exports = function(game) {
     game.physics.arcade.collide(this.player, map.layer);
 
     this.player.body.velocity.x = 0;
-    if(controls.space.isDown || controls.space.isDown && controls.right.isDown) {
-      this.player.animations.play("mine");
-      this.mineTile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64));
-      if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
-        this.mine(map);
+    if(controls.space.isDown) {
+      if(controls.left.isDown) {
+        this.player.scale.setTo(-1, 1);
+        this.player.animations.play("mine");
+        this.mineTile = map.map.getTileLeft(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64));
+        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+          this.mine(map);
+        }
+      }
+
+      if(controls.right.isDown) {
+        this.player.animations.play("mine");
+        this.mineTile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64));
+        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+          this.mine(map);
+        }
       }
     }
 
@@ -48,6 +59,48 @@ module.exports = function(game) {
       this.player.animations.play("run");
       this.player.body.velocity.y = -600;
       jumpTimmer = game.time.now + 750;
+    }
+
+    if(controls.s.isDown) {
+      if(controls.right.isDown) {
+        this.player.scale.setTo(1, 1);
+        this.player.animations.play("mine");
+        this.mineTile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) + 1);
+        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+          this.mine(map);
+        }
+      }
+
+      if(controls.left.isDown) {
+        this.player.scale.setTo(-1, 1);
+        this.player.animations.play("mine");
+        this.mineTile = map.map.getTileLeft(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) + 1);
+        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+          this.mine(map);
+        }
+
+      }
+    }
+
+    if(controls.w.isDown) {
+      if(controls.right.isDown) {
+        this.player.scale.setTo(1, 1);
+        this.player.animations.play("mine");
+        this.mineTile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) - 1);
+        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+          this.mine(map);
+        }
+      }
+
+      if(controls.left.isDown) {
+        this.player.scale.setTo(-1, 1);
+        this.player.animations.play("mine");
+        this.mineTile = map.map.getTileLeft(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) - 1);
+        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+          this.mine(map);
+        }
+      }
+
     }
 
     if(this.player.body.velocity.x === 0 && this.player.body.velocity.y === 0 && !controls.space.isDown) {

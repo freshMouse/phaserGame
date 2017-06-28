@@ -2,7 +2,7 @@ var Zombie = require("./Zombie.js");
 
 module.exports = function(game, map, player) {
   this.x = Math.random() * 5000;
-  this.y = 90;
+  this.y = Math.random() === 0.5 ? -Math.random() * 100 : 100;
 
   this.zombies = new Array(5);
 
