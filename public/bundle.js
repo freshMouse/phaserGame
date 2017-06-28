@@ -262,26 +262,21 @@ module.exports = function (game) {
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Zombie = __webpack_require__(7);
+var House = __webpack_require__(8);
 
 module.exports = function (game, map, player) {
-  this.housePos = { x: 10, y: 10 };
-  this.zombies = new Array(10);
-  this.setup = function () {
-    this.house = game.add.sprite(this.housePos.x, this.housePos.y, "ememyHouse");
-    game.physics.enable(this.house);
-    this.house.collideWorldBounds = true;
+  this.houses = new Array(8);
 
-    for (var i = 0; i < this.zombies.length; i++) {
-      this.zombies[i] = new Zombie(game, this.housePos.x, this.housePos.y, map, player);
-      this.zombies[i].setup();
+  this.setup = function () {
+    for (var i = 0; i < this.houses.length; i++) {
+      this.houses[i] = new House(game, map, player);
+      this.houses[i].setup();
     }
   };
 
   this.update = function () {
-    game.physics.arcade.collide(this.house, map.layer);
-    for (var i = 0; i < this.zombies.length; i++) {
-      this.zombies[i].update();
+    for (var j = 0; j < this.houses.length; j++) {
+      this.houses[j].update();
     }
   };
 };
@@ -326,6 +321,39 @@ module.exports = function Zombie(game, x, y, map, player) {
 
   this.killPlayer = function () {
     location.reload();
+  };
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Zombie = __webpack_require__(7);
+
+module.exports = function (game, map, player) {
+  this.x = Math.random() * 5000;
+  this.y = 90;
+
+  this.zombies = new Array(5);
+
+  this.house = game.add.sprite(this.x, this.y, "ememyHouse");
+
+  this.setup = function () {
+    game.physics.enable(this.house);
+    this.house.collideWorldBounds = true;
+
+    for (var i = 0; i < this.zombies.length; i++) {
+      this.zombies[i] = new Zombie(game, this.x, this.y, map, player);
+      this.zombies[i].setup();
+    }
+  };
+
+  this.update = function () {
+    game.physics.arcade.collide(this.house, map.layer);
+
+    for (var i = 0; i < this.zombies.length; i++) {
+      this.zombies[i].update();
+    }
   };
 };
 
