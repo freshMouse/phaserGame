@@ -2,6 +2,8 @@ module.exports = function(game) {
   this.speed = 400;
   this.jumpTimmer = 0;
 
+  this.inven = [];
+
   this.setup = function() {
     game.physics.arcade.gravity.y = 1400;
 
@@ -28,16 +30,18 @@ module.exports = function(game) {
       if(controls.left.isDown) {
         this.player.scale.setTo(-1, 1);
         this.player.animations.play("mine");
-        this.mineTile = map.map.getTileLeft(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64));
-        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+        this.tile = map.map.getTileLeft(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64));
+        if(this.tile.index === 2 || this.tile.index === 5 || this.tile.index === 6 ||  this.tile.index === 9 || this.tile.index === 10 || this.tile.index === 11   ) {
+          this.inven.push(this.tile.index);
           this.mine(map);
         }
       }
 
       if(controls.right.isDown) {
         this.player.animations.play("mine");
-        this.mineTile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64));
-        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+        this.tile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64));
+        if(this.tile.index === 2 || this.tile.index === 5 || this.tile.index === 6 ||  this.tile.index === 9 || this.tile.index === 10 || this.tile.index === 11   ) {
+          this.inven.push(this.tile.index);
           this.mine(map);
         }
       }
@@ -65,8 +69,9 @@ module.exports = function(game) {
       if(controls.right.isDown) {
         this.player.scale.setTo(1, 1);
         this.player.animations.play("mine");
-        this.mineTile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) + 1);
-        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+        this.tile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) + 1);
+        if(this.tile.index === 2 || this.tile.index === 5 || this.tile.index === 6 ||  this.tile.index === 9 || this.tile.index === 10 || this.tile.index === 11   ) {
+          this.inven.push(this.tile.index);
           this.mine(map);
         }
       }
@@ -74,8 +79,9 @@ module.exports = function(game) {
       if(controls.left.isDown) {
         this.player.scale.setTo(-1, 1);
         this.player.animations.play("mine");
-        this.mineTile = map.map.getTileLeft(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) + 1);
-        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+        this.tile = map.map.getTileLeft(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) + 1);
+        if(this.tile.index === 2 || this.tile.index === 5 || this.tile.index === 6 ||  this.tile.index === 9 || this.tile.index === 10 || this.tile.index === 11   ) {
+          this.inven.push(this.tile.index);
           this.mine(map);
         }
 
@@ -86,8 +92,9 @@ module.exports = function(game) {
       if(controls.right.isDown) {
         this.player.scale.setTo(1, 1);
         this.player.animations.play("mine");
-        this.mineTile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) - 1);
-        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+        this.tile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) - 1);
+        if(this.tile.index === 2 || this.tile.index === 5 || this.tile.index === 6 ||  this.tile.index === 9 || this.tile.index === 10 || this.tile.index === 11   ) {
+          this.inven.push(this.tile.index);
           this.mine(map);
         }
       }
@@ -95,12 +102,25 @@ module.exports = function(game) {
       if(controls.left.isDown) {
         this.player.scale.setTo(-1, 1);
         this.player.animations.play("mine");
-        this.mineTile = map.map.getTileLeft(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) - 1);
-        if(this.mineTile.index === 2 || this.mineTile.index === 5 || this.mineTile.index === 6 ||  this.mineTile.index === 9 || this.mineTile.index === 10 || this.mineTile.index === 11   ) {
+        this.tile = map.map.getTileLeft(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) - 1);
+        if(this.tile.index === 2 || this.tile.index === 5 || this.tile.index === 6 ||  this.tile.index === 9 || this.tile.index === 10 || this.tile.index === 11   ) {
+          this.inven.push(this.tile.index);
           this.mine(map);
         }
       }
 
+    }
+
+    if(controls.d.isDown) {
+      if(controls.left.isDown) {
+        this.tile = map.map.getTileLeft(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) - 1);
+        this.place(map);
+      }
+
+      if(controls.right.isDown) {
+        this.tile = map.map.getTileRight(0, Math.round(this.player.x/64) - 1, Math.round(this.player.y/64) - 1);
+        this.place(map);
+      }
     }
 
     if(this.player.body.velocity.x === 0 && this.player.body.velocity.y === 0 && !controls.space.isDown) {
@@ -109,6 +129,10 @@ module.exports = function(game) {
   }
 
   this.mine = function(map) {
-    map.map.putTile(-1, this.mineTile.x, this.mineTile.y);
+    map.map.putTile(-1, this.tile.x, this.tile.y);
   }
-}
+
+  this.place = function(map) {
+    map.map.putTile(this.inven[0], this.tile.x, this.tile.y);
+  }
+};

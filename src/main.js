@@ -14,5 +14,3 @@ var game = new Phaser.Game(conf);
 game.state.add("Boot", Boot, true);
 game.state.add("Load", Load);
 game.state.add("L1", L1);
-
-

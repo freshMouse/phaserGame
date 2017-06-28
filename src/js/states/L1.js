@@ -28,7 +28,8 @@ module.exports = function(game) {
       up: this.input.keyboard.addKey(Phaser.Keyboard.UP),
       space: this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR), // mine!
       s: this.input.keyboard.addKey(Phaser.Keyboard.S),
-      w: this.input.keyboard.addKey(Phaser.Keyboard.W)
+      w: this.input.keyboard.addKey(Phaser.Keyboard.W),
+      d: this.input.keyboard.addKey(Phaser.Keyboard.D)
     }
   }
 }
