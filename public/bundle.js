@@ -85,13 +85,13 @@ module.exports = function (game) {
 
     index: 0,
 
-    timmer: 100
+    timmer: 500
   };
 
   this.setup = function () {
     game.physics.arcade.gravity.y = 1400;
 
-    this.player = game.add.sprite(100, 200, "miner");
+    this.player = game.add.sprite(1000, 3000, "miner");
     game.physics.enable(this.player);
 
     this.player.body.collideWorldBounds = true;
@@ -199,19 +199,21 @@ module.exports = function (game) {
         this.place(map);
       }
     }
-    if (controls.a.isDown) {
+    if (controls.a.isDown && !controls.space.isDown && !controls.left.isDown && !controls.right.isDown && !controls.up.isDown && !controls.s.isDown && !controls.w.isDown && !controls.d.isDown) {
       if (game.time.now > this.inven.timmer) {
         var max = this.inven.order.length;
         this.inven.index = (max + this.inven.index - 1) % max;
-        this.text = game.add.text(this.player.x + 10, this.player.y, this.inven.order[this.inven.index], { font: "32px Arial", fill: "#f26c4f", align: "left" });
+        if (!this.text) {
+          this.text = game.add.text(this.player.x + 10, this.player.y, this.inven.order[this.inven.index], { font: "32px Arial", fill: "#f26c4f", align: "left" });
+          this.text.fixToCamera = true;
+        } else {
+          this.text.destroy();
+          this.text = game.add.text(this.player.x + 10, this.player.y, this.inven.order[this.inven.index], { font: "32px Arial", fill: "#f26c4f", align: "left" });
+          this.text.fixToCamera = true;
+        }
 
-        this.text.fixToCamera = true;
-        this.inven.timmer += 2000;
+        this.inven.timmer += 500;
       }
-      var self = this;
-      setTimeout(function () {
-        self.text.destroy();
-      }, 500);
     }
 
     if (this.player.body.velocity.x === 0 && this.player.body.velocity.y === 0 && !controls.space.isDown) {
@@ -391,7 +393,7 @@ module.exports = function (game) {
 var House = __webpack_require__(7);
 
 module.exports = function (game, map, player) {
-  this.houses = new Array(8);
+  this.houses = new Array(30);
 
   this.setup = function () {
     for (var i = 0; i < this.houses.length; i++) {
@@ -414,8 +416,8 @@ module.exports = function (game, map, player) {
 var Zombie = __webpack_require__(8);
 
 module.exports = function (game, map, player) {
-  this.x = Math.random() * 5000;
-  this.y = Math.random() === 0.5 ? -Math.random() * 100 : 100;
+  this.x = Math.random() * 10000;
+  this.y = 3000;
 
   this.zombies = new Array(5);
 

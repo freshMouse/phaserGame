@@ -1,7 +1,7 @@
 var House  = require("./House");
 
 module.exports = function(game, map, player) {
-  this.houses = new Array(8);
+  this.houses = new Array(30);
 
   this.setup = function() {
     for(var i = 0; i < this.houses.length; i++) {
