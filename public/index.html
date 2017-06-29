@@ -2,11 +2,40 @@
 <html>
   <head>
     <title>phaser game</title>
+    <style>
+      #password {
+        background-color: red;
+      }
+
+      #password:after {
+        content: "";
+        height: 200px;
+      }
+      input {
+        border: 1px solid red;
+      }
+
+      #login {
+        background-color: blue;
+      }
+    </style>
   </head>
   <body>
     <div id="password">
+      <h1>make a account</h1>
       <form method="POST" action="/">
         Password: <input type="password" name="password"></input>
+        username: <input type="text" name="username"></input>
+        user password: <input type="password" name="userPassword"></input>
+        <input type="submit"></input>
+      </form>
+    </div>
+
+    <div id="login">
+      <h1>login</h1>
+      <form method="POST" action="/login">
+        username: <input type="text" name="name"></input>
+        password: <input type="text" name="loginPassword"></input>
         <input type="submit"></input>
       </form>
     </div>
@@ -30,3 +59,4 @@
 -->
   </body>
 </html>
+
